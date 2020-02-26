@@ -22,22 +22,22 @@ class Student(Person):
 		self.kurs += add
 
 while True:
-	nameOBJ = input('Введите имя для создания объекта и укажите класс:')
+	nameOBJ = input('Enter name, for create new object:')
 	if nameOBJ == 'exit': break
 	choise_class = input('1. Teacher\n2. Student: ')
 	if choise_class == '1':
 		key_name = nameOBJ
-		NAME = input("Введите имя: ")
-		AGE = input('Введите возраст: ')
-		PAY = int(input('Введите зарплату: '))
+		NAME = input("Enter name: ")
+		AGE = input('Enter age: ')
+		PAY = int(input('Enter pay: '))
 		nameOBJ = teacher(NAME, AGE, PAY)
 		Bfile = shelve.open('My_class')
 		Bfile[key_name] = nameOBJ
 	if choise_class == '2':
 		key_name = nameOBJ
-		NAME = input('Введите имя: ')
-		AGE = input("Введите возраст: ")
-		KURS = int(input('Введите курс: '))
+		NAME = input('Enter name: ')
+		AGE = input("Enter age: ")
+		KURS = int(input('Enter course: '))
 		nameOBJ = Student(NAME, AGE, KURS)
 		with shelve.open('My_class') as Bfile:
 			Bfile[key_name] = nameOBJ
